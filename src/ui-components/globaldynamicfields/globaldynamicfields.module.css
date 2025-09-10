@@ -1,0 +1,82 @@
+.contact_dynamic_field_card {
+  border: 1px solid var(--primary-50);
+  box-shadow: 0px 0px 5px -1px var(--primry-100);
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+.contact_dynamic_field_card_header {
+  padding: 5px;
+  background: var(--primry-300);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.customfields_header_alignment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.customfields_header {
+  padding: 5px 10px;
+}
+.customfields_header h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-50);
+}
+.customfields_header p,
+.customfields_header p span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-50);
+  margin: 0;
+  text-align: left;
+}
+.customfields_plus_div {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-50);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.customfields_plus_div .bs_plus_font {
+  font-size: 30px;
+}
+.dynamic_fields_div {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 15px 6px 15px;
+}
+.dynamic_input_fields {
+  border: 1px solid var(--primry-100);
+  border-radius: 6px;
+  width: 170px;
+  padding: 5px;
+  cursor: pointer;
+}
+.dynamic_input_fields:hover,
+.dynamic_input_fields:focus {
+  border: 1px solid var(--primry-300);
+  border-radius: 6px;
+  width: 170px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--primry-50);
+}
+.dynamic_input_fields .align_data {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: start;
+  gap: 14px;
+  padding-left: 1rem;
+}
+.dynamic_input_fields span {
+  font-size: 12px;
+  margin: 0;
+  color: var(--primry-500);
+  font-weight: 500;
+}

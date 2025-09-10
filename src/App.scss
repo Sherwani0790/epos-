@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+:root {
+    --body-bg: #e7e7e7;
+    --sidebar-active-color: #3165cb;
+    --bg-white: #fff;
+    --color-bg: #5063BF;
+    --color-border: #e5e7eb;
+    --color-sidebar-item: #f3f4f6;
+    --a-color: #3165cb;
+    --sidebar-active: #3E4FA5;
+    --base-color: #fff;
+    --filter-bg: #E4E4E4;
+    --graph-card-shadow: #ddd;
+    --view-name-color: #495057;
+}
+
+.layout-config {
+    display: none !important;
+}
+
+body {
+    background-color: #F7F7F7;
+    font-family: "Poppins", sans-serif;
+    height: auto;
+    overflow-y: auto;
+    overscroll-behavior-x: none;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #eaecf0;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sidebar-active-color);
+    border-radius: 5px;
+    opacity: 0.3;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--sidebar-active-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.p-inputtextarea {
+    resize: none;
+}
+
+.layout-menu li a.router-link-exact-active i {
+    color: var(--bg-white);
+}
+
+.layout-menu li a i {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.p-button:focus {
+    box-shadow: none !important;
+}
+
+.p-dialog {
+    border-radius: 12px !important;
+}
+
+.p-dialog .p-dialog-header {
+    padding: 0.5rem 1.5rem !important;
+    border-top-right-radius: 12px !important;
+    border-top-left-radius: 12px !important;
+}
+
+.p-dialog .p-dialog-content:last-of-type {
+    border-bottom-right-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+/* //custom_scroll */
+// body::-webkit-scrollbar {
+//     width: 6px;
+//     height: 6px;
+// }
+
+// body::-webkit-scrollbar-track {
+//     background: #eaecf0;
+//     border-radius: 5px;
+// }
+
+// body::-webkit-scrollbar-thumb {
+//     background: var(--sidebar-active-color);
+//     border-radius: 5px;
+//     opacity: 0.3;
+// }
+
+// body::-webkit-scrollbar-thumb:hover {
+//     background: var(--sidebar-active-color);
+// }
+
+.clr_red {
+    color: #f04438;
+
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+.clr_green {
+    color: var(--success-500);
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+label {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.p-inputtext:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.1rem var(--filter-bg) !important;
+    border-color: var(--filter-bg) !important;
+}
+
+.p-inputtext:enabled:hover,
+.p-dropdown:not(.p-disabled):hover {
+    border-color: var(--filter-bg) !important;
+}
+
+.p-calendar-w-btn-right .p-datepicker-trigger {
+    background-color: transparent !important;
+    color: var(--gray-500) !important;
+    /* border: #ced4da; */
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px !important;
+    background-color: transparent !important;
+    color: var(--gray-500) !important;
+    border: 1px solid #ced4da !important;
+    height: 34px;
+}
+
+.p-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none !important;
+}
+
+.p-calendar-w-btn-right .p-inputtext {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    height: 34px;
+    font-size: 11px;
+    background-color: var(--filter-bg);
+}
+
+.p-button .p-button-icon-right {
+    margin-left: 0.5rem;
+    font-size: 11px;
+    margin-top: 0.2rem;
+}
+
+.p-breadcrumb {
+    background: transparent;
+    border: 0 !important;
+    border-radius: 3px;
+    padding: 0.8rem !important;
+}
+
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-link {
+    color: var(--gray-700);
+}
+
+.p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-text {
+    color: var(--secondary-600) !important;
+    /* font-weight: 500; */
+}
+
+// .p-breadcrumb .p-breadcrumb-list li .p-menuitem-link:focus {
+//     box-shadow: none !important;
+// }
+
+.p-breadcrumb ul li .p-menuitem-link:focus {
+    box-shadow: none !important;
+}
+
+.p-dropdown-panel .p-dropdown-items {
+    padding: 0.3rem 0 !important;
+    font-size: 11px !important;
+}
+
+.p-dropdown .p-dropdown-label,
+.p-dropdown .p-dropdown-label.p-placeholder {
+    font-size: 11px !important;
+}
+
+/* //Data Table  */
+.p-datatable .p-column-header-content {
+    font-size: 12px;
+    font-weight: 500;
+    width: 100px;
+    display: contents !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th,
+.p-datatable .p-datatable-tbody>tr>td {
+    padding: 0.55rem 0.5rem !important;
+    font-size: 12px;
+    // background-color: #E2F2F5 !important;
+    margin-bottom: .5rem;
+}
+
+/* //Data Table  */
+.p-inputswitch {
+    width: 2rem !important;
+    height: 1rem !important;
+}
+
+.p-inputswitch .p-inputswitch-slider:before {
+    background: #ffffff;
+    width: 0.75rem !important;
+    height: 0.7rem !important;
+    left: 0rem !important;
+    margin-top: -0.35rem !important;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+    transform: translateX(1rem) !important;
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider,
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: var(--sidebar-active) !important;
+}
+
+/* Input Switch */
+/* tooltip */
+
+.p-tooltip-text {
+    font-size: 10px;
+}
+
+/* tooltip */
+
+/* prime react dialog  */
+.p-dialog .p-dialog-content {
+    padding: 10px !important;
+}
+
+.p-dialog-content {
+    /* border-radius: 12px !important; */
+}
+
+/* prime accordian  */
+
+.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+    display: none;
+}
+
+.p-accordion-header-text {
+    width: 100%;
+}
+
+.custom-accordian-tab {
+    margin-bottom: 30px !important;
+}
+
+.custom-accordian-wrapper .p-accordion-tab {
+    margin-bottom: 30px !important;
+}
+
+.p-accordion-tab .p-accordion-header .p-accordion-header-link {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
+    box-shadow: none !important;
+}
+
+/* AVATAR Text  */
+.p-avatar-text {
+    font-size: 12px;
+}
+
+
+input[type="file"] {
+    padding: 8px;
+}
+
+/* Scroll */
+.max-height-view {
+    height: calc(100vh - 150px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.max-height-view::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.max-height-view::-webkit-scrollbar-track {
+    background: #eaecf0;
+    border-radius: 5px;
+}
+
+.max-height-view::-webkit-scrollbar-thumb {
+    background: var(--color-bg);
+    border-radius: 5px;
+    opacity: 0.3;
+}
+
+.max-height-view::-webkit-scrollbar-thumb:hover {
+    background: var(--color-bg);
+}
+
+/* Bredcrumb font size and font weight */
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-link .p-menuitem-text {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.main_header p {
+    color: var(--view-name-color);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.custom-button-css>.p-button {
+    color: gray !important;
+    background: none;
+    border: none !important;
+    margin-left: 5px !important;
+    font-size: 16px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+}
+
+.custom-button-css>.p-button:hover {
+
+    color: gray !important;
+    background: none;
+    border: none !important;
+    margin-left: 5px !important;
+    font-size: 16px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+}
+
+.custom-button-css>.p-splitbutton-defaultbutton {
+    display: none !important;
+}
+
+.layout-topbar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.layout-topbar-header .p-splitbutton.p-button-text>.p-button:enabled:active,
+.p-splitbutton.p-button-text>.p-button:not(button):not(a):not(.p-disabled):active {
+    background-color: transparent;
+}
+
+.p-confirm-popup:before,
+.p-confirm-popup:after {
+    display: none;
+}
+
+.p-confirm-popup {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-top: 10px;
+    width: auto;
+}
+
+@media(max-width:768px) {
+    .p-confirm-popup {
+        position: absolute;
+        top: 30%;
+        left: 40px;
+        margin-top: 10px;
+        width: auto;
+        right: 40px;
+    }
+}

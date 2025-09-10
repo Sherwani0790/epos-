@@ -1,0 +1,14 @@
+.primary_button,
+.primary_button:hover,
+.primary_button:active,
+.primary_button:focus {
+  background: var(--primry-600) !important;
+  padding: 7px 10px !important;
+  border-radius: 4px !important;
+  color: var(--gray-10) !important;
+  border: 1px solid var(--filter-bg) !important;
+  outline: none !important;
+  font-size: 11px !important;
+  width: 120px;
+}
+

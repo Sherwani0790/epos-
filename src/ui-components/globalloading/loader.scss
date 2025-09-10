@@ -1,0 +1,79 @@
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.dot {
+    position: absolute;
+    top: 280px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #27b5fd, #3165cb);
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.dot-1 {
+    left: 0;
+    animation-delay: -0.24s;
+}
+
+.dot-2 {
+    left: 24px;
+    animation-delay: -0.12s;
+}
+
+.dot-3 {
+    left: 48px;
+    animation-delay: 0s;
+}
+
+@keyframes bounce {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+@media (max-width: 768px) {
+    .dot {
+        top: 250px;
+    }
+}
+@media (max-width: 1919px) and (min-width: 1440px) {
+    .dot {
+        top: 250px;
+    }
+}
+@media (min-width: 1920px) {
+    .dot {
+        top: 350px;
+    }
+}
+.loader_image_width {
+    width: 120px;
+}
+
+/* Style for the loader container */
+.loader_main_div {
+    // position: fixed;
+    top: 0;
+    left: 7% !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background for better visibility */
+}
+
+/* Style for the loader image */
+.loader_image_width {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Preserve the aspect ratio */
+}

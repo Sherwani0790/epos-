@@ -1,0 +1,38 @@
+.tickets_card {
+  border: 1px solid var(--primary-50);
+  padding: 11px;
+  box-shadow: 0px 0px 5px -1px var(--primry-100);
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+.ticket_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.ticket_text_p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--gray-500);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 170px;
+  overflow: hidden;
+}
+.ticket_long_text {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--gray-500);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+  overflow: hidden;
+}
+.ticket_text_span {
+  color: var(--secondary-500);
+  font-weight: 500;
+  font-size: 11px;
+}

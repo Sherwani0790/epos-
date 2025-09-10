@@ -1,0 +1,30 @@
+.dropzone {
+  border: 1px solid var(--gray-300);
+  padding-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  /* background-color: #f1f4e3; */
+}
+
+.preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.preview img {
+  max-width: 100%;
+  height: 200px;
+}
+.extension_Upload {
+  color: var(--gray-400);
+  font-size: 12px;
+}
+.dragdrop_text {
+  color: var(--gray-600);
+}
+.cloudupload_icon {
+  font-size: 45px;
+  color: var(--secondary-200);
+}

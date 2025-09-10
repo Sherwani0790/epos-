@@ -1,0 +1,14 @@
+.secondary_button,
+.secondary_button:hover,
+.secondary_button:active,
+.secondary_button:focus {
+  background: var(--color-bg) !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  color: var(--base-color) !important;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-size: 11px !important;
+  width: 120px;
+}

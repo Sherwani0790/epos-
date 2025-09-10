@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+:root {
+    --primary-button-color: #3165cb;
+    --secondary-button-color: #f5f8fa;
+    --text-primary: #555960;
+    --text-white: #ffff;
+    --text-border-color: #d0d5dd;
+    --border-color: #9d9fa3;
+    --text-forget: #555960;
+    --register-color: #152a55;
+    --footer-text: #2b2f38;
+}
+.container {
+        background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 0px 14px 2px #ccc;
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    min-height: 400px;
+    padding: 40px 15px 15px 15px;
+}
+.custom_margin_top {
+    text-align: center;
+    margin-top: 20%;
+}
+.custom_margin_top h4 {
+    font-size: 1.8rem;
+}
+.p-password {
+    width: 100%;
+    font-size: 13px;
+    color: #495057;
+    background: #ffffff;
+    padding: 0;
+    border: 0;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    border-radius: 6px;
+}
+
+.p-inputtext {
+    width: 100%;
+    font-size: 13px;
+    color: #495057;
+    background: #ffffff;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    border-radius: 6px;
+}
+::placeholder {
+    color: var(--border-color);
+}
+.p-password-panel,
+.p-password-meter,
+.p-password-info {
+    display: none;
+}
+.background_image {
+    background-image: url(../../Images/bg-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.login_h1{
+    text-align:center;}
+.RegisterNow {
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    height: 100vh;
+    background: #fff;
+}
+.sign_in_text {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0px 0px 5px 0px;
+    text-align:center;
+}
+.sign_text {
+    font-size: 13px;
+    color: var(--text-forget);
+    text-align:center;
+}
+.sign_in_btn {
+    background-color: var(--primary-button-color) !important;
+    color: var(--text-white) !important;
+    border: none;
+    width: 120px;
+    padding: 10px 12px;
+    height: 70%;
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.sign_in_btn:hover,
+.sign_in_btn:active,
+.sign_in_btn:focus {
+    background-color: var(--primary-button-color) !important;
+    color: var(--text-white) !important;
+    border: none;
+    width: 120px;
+    padding: 10px 12px;
+    height: 70%;
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: transform 80ms ease-in;
+    transform: scale(0.95);
+}
+.sign_in_btn_disabled {
+    opacity: 0.5;
+    border: 1px solid var(--sidebar-active-color) !important;
+    background: var(--sidebar-active-color) !important;
+    color: var(--bg-white) !important;
+    width: 120px;
+    padding: 10px 12px;
+    height: 70%;
+    font-weight: 300;
+    cursor: no-drop;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.forget_text {
+    margin: 10px 0px 5px 0px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.forget_text:hover {
+    text-decoration: underline;
+    color: var(--primary-button-color);
+}
+.client_text {
+    font-size: 11px;
+    color: var(--text-forget);
+}
+
+.register_btn {
+    color: var(--primary-button-color) !important;
+    background-color: var(--text-white) !important;
+    border: none;
+    width: 150px;
+    padding: 7px 12px;
+    height: 70%;
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid var(--text-border-color);
+}
+.register_btn:active,
+.register_btn:focus,
+.register_btn:hover {
+    color: var(--primary-button-color) !important;
+    background-color: var(--text-white) !important;
+    border: none;
+    width: 150px;
+    padding: 7px 12px;
+    height: 70%;
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid var(--text-border-color);
+    transition: transform 80ms ease-in;
+    transform: scale(0.95);
+}
+.res_img img {
+    width: 35%;
+}
+
+.pi {
+    cursor: pointer;
+}
+.footer_text {
+    color: var(--footer-text);
+    font-size: 12px;
+}
+.footer_text a {
+    cursor: pointer;
+    color: var(--primary-button-color);
+    font-size: 12px;
+}
+.become_partner {
+    height: 100vh;
+    color: #222;
+}
+.back_login {
+    color: var(--text-forget);
+    font-weight: 800;
+}
+.back_login:hover,
+.back_login:hover h3 {
+    color: var(--sidebar-active-color);
+    font-weight: 800;
+}
+.back_login .pi-arrow-circle-left {
+    margin-top: 0.51rem;
+}
+.back_login h3 {
+    color: var(--text-forget);
+    font-weight: 800;
+    font-size: 16px;
+}
+.hyper_link_class:hover {
+    color: var(--primary-button-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.disabled_sign_in_btn{
+    opacity: 0.5; 
+    cursor: not-allowed;
+}
+
+/* .p-button:enabled:hover, .p-button:not(button):not(a):not(.p-disabled):hover {
+    color: var(--text-white) !important;
+} */
+@media (max-width: 768px) {
+    .background_image {
+        /* background-image: url(../../Images/login-bg-01.svg); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow-x: hidden;
+        height: 100vh !important;
+    }
+    .res_img img {
+        width: 30%;
+    }
+    h4 {
+        font-size: 1.2rem !important;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        max-width: 100%;
+        min-height: 400px;
+        padding: 15px;
+        opacity: 1;
+        z-index: 999;
+        margin:45% auto 0 auto !important ;
+    }
+}
+@media (max-width: 1919px) and (min-width: 1366px) {
+    .custom_margin_top {
+        text-align: center;
+        margin-top: 5%;
+    }
+}
+@media (min-width: 1920px) {
+    .container {
+        width: 1100px;
+    }
+    .custom_padding_top {
+        padding-top: 7rem;
+    }
+}
+/* @media (min-width: 1366px) and (max-width: 1919px) {
+    .field label {
+        font-size: 11px;
+    }
+} */

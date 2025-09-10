@@ -1,0 +1,87 @@
+.kebab_menu {
+    position: relative;
+  }
+  
+  .kebab_menu .taskheaderbutton,
+  .kebab_menu .taskheaderbutton:hover,
+  .kebab_menu .taskheaderbutton:active,
+  .kebab_menu .taskheaderbutton:focus {
+    background-color: transparent;
+    border: none !important;
+    font-size: 14px;
+    color: #495057 !important;
+    overflow: hidden;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  
+  .kebab_menu .taskbodybutton,
+  .kebab_menu .taskbodybutton:hover,
+  .kebab_menu .taskbodybutton:active,
+  .kebab_menu .taskbodybutton:focus {
+    background-color: var(--filter-bg);
+    border: none !important;
+    font-size: 14px;
+    color: var(--color-bg) !important;
+    overflow: hidden;
+    padding: 3.5px 8px !important;
+    height: 39px !important;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+  
+  .kebab_menu .p-button.p-button-icon-only {
+    width: 3.5rem;
+  }
+  
+  /* #popup_menu {
+    min-width: 180px !important;
+  } */
+  
+  .kebab_menu_border {
+    width: 110px !important;
+    border-radius: 12px;
+    position: absolute;
+    background-color: white !important;
+    // min-width: auto !important;
+  
+    /* text-align: center; */
+  }
+  .p-menu.p-menu-overlay{
+    min-width: max-content !important;
+  }
+  .kebab_menu_border li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .disable_kebab_menu_border_single {
+    background-color: var(--role-title-bg) !important;
+  }
+  
+  .disable_kebab_menu_border_all {
+    width: 130px !important;
+    border-radius: 12px;
+    position: absolute;
+    background-color: var(--role-title-bg) !important;
+  }
+  
+  .kebab_menu_item {
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .kebab_menu_item_font {
+    font-size: 12px;
+    padding: 2px 5px 2px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  
+  .last_kebab_menu_item {
+    border-bottom: none;
+  }
+  
+  .disabled-kebab-menu {
+    cursor: not-allowed;
+  }

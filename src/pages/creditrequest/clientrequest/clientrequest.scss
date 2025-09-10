@@ -1,0 +1,30 @@
+.equal_space {
+    margin-top: 1rem;
+}
+
+.inlineFlex {
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+}
+
+/* //Column Filter */
+.filter_column {
+    /* border: 1px solid var(--gray-400); */
+    border-radius: 6px;
+    padding: 3.5px 8px;
+    cursor: pointer;
+    height: 33px;
+    background-color: var(--filter-bg);
+}
+
+.filter_column .filter_icon_color {
+    color: var(--color-bg);
+    font-weight: 800;
+}
+.terminated_check_styles{
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    margin-top: 22px;
+  }
