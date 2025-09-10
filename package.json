@@ -1,7 +1,7 @@
 {
     "name": "sakai-react",
     "version": "7.0.3-SNAPSHOT",
-    "homepage": ".",
+    "homepage": "https://github.com/Sherwani0790/epos-.github.io",
     "private": false,
     "repository": {
         "type": "git",
@@ -42,7 +42,9 @@
         "start": "react-scripts  --openssl-legacy-provider  start",
         "build": "react-scripts  --openssl-legacy-provider  build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "eslintConfig": {
         "extends": [
@@ -54,5 +56,8 @@
         "not dead",
         "not ie <= 11",
         "not op_mini all"
-    ]
+    ],
+    "devDependencies": {
+        "gh-pages": "^6.3.0"
+    }
 }
