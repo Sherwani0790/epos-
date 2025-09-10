@@ -50,7 +50,7 @@ export const AppTopbar = (props) => {
     return (
         <div className="layout-topbar">
             <Link to="/" className="layout-topbar-logo">
-                <img src={props.layoutColorMode === "light" ? "assets/layout/images/teek_logo.svg" : "assets/layout/images/teek_logo.svg"} alt="logo" />
+                <img src={props.layoutColorMode === "light" ? "assets/layout/images/epos.svg" : "assets/layout/images/teek_logo.svg"} alt="logo" />
             </Link>
             <button type="button" className="p-link  layout-menu-button layout-topbar-button" onClick={props.onToggleMenuClick}>
                 <i className="pi pi-bars" />

@@ -263,7 +263,7 @@ const App = () => {
     return (
         <>
             {
-                user === undefined ?
+                user !== undefined ?
                     <>
                         <ToastContainer />
                         <Route path="/api/forgotpass" exact={true} component={ForgotPass} />
