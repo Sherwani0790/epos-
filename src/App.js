@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React,{ useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
@@ -27,7 +27,10 @@ import { useSelector } from "react-redux";
 import Dashboard from "./components/Dashboard";
 import ForgotPass from "./pages/login/forgotpass";
 import Login from "./pages/login/Login";
-import SalesMain from "./pages/sales";
+import POSMain from "./pages/posmain";
+import productMain from "./pages/product";
+import userMain from "./pages/users";
+import salesMain from "./pages/sales";
 
 const App = () => {
     const [layoutMode, setLayoutMode] = useState("static");
@@ -150,9 +153,36 @@ const App = () => {
         {
             items: [
                 {
+                    label: "POS",
+                    icon: "pi pi-fw pi-home",
+                    to: "/api/pos",
+                },
+            ],
+        },
+        {
+            items: [
+                {
                     label: "Sales",
                     icon: "pi pi-fw pi-home",
                     to: "/api/sales",
+                },
+            ],
+        },
+        {
+            items: [
+                {
+                    label: "Stock Management",
+                    icon: "pi pi-fw pi-home",
+                    to: "/api/stock",
+                },
+            ],
+        },
+        {
+            items: [
+                {
+                    label: "User Management",
+                    icon: "pi pi-fw pi-home",
+                    to: "/api/user",
                 },
             ],
         },
@@ -204,7 +234,10 @@ const App = () => {
                                 {/* //Dashboard */}
                                 <Route path="/" exact component={Dashboard} />
                                 {/* Management */}
-                                <Route path="/api/sales" exact component={SalesMain} />
+                                <Route path="/api/pos" exact component={POSMain} />
+                                <Route path="/api/sales" exact component={salesMain} />
+                                <Route path="/api/stock" exact component={productMain} />
+                                <Route path="/api/user" exact component={userMain} />
                             </Switch>
                         </div>
                         <AppFooter layoutColorMode={layoutColorMode} />

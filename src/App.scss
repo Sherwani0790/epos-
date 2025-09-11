@@ -4,13 +4,13 @@
     --body-bg: #e7e7e7;
     --sidebar-active-color: #3165cb;
     --bg-white: #fff;
-    --color-bg: #5063BF;
+    --color-bg: #5063bf;
     --color-border: #e5e7eb;
     --color-sidebar-item: #f3f4f6;
     --a-color: #3165cb;
-    --sidebar-active: #3E4FA5;
+    --sidebar-active: #3e4fa5;
     --base-color: #fff;
-    --filter-bg: #E4E4E4;
+    --filter-bg: #e4e4e4;
     --graph-card-shadow: #ddd;
     --view-name-color: #495057;
 }
@@ -20,7 +20,7 @@
 }
 
 body {
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     font-family: "Poppins", sans-serif;
     height: auto;
     overflow-y: auto;
@@ -214,12 +214,12 @@ label {
     display: contents !important;
 }
 
-.p-datatable .p-datatable-thead>tr>th,
-.p-datatable .p-datatable-tbody>tr>td {
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
     padding: 0.55rem 0.5rem !important;
     font-size: 12px;
     // background-color: #E2F2F5 !important;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 /* //Data Table  */
@@ -262,7 +262,9 @@ label {
 }
 
 .p-dialog-content {
-    /* border-radius: 12px !important; */
+ border-bottom-left-radius: 12px !important;
+ border-bottom-right-radius: 12px !important;
+//  border-radius: 12px !important;
 }
 
 /* prime accordian  */
@@ -295,7 +297,6 @@ label {
 .p-avatar-text {
     font-size: 12px;
 }
-
 
 input[type="file"] {
     padding: 8px;
@@ -340,7 +341,7 @@ input[type="file"] {
     font-size: 18px;
 }
 
-.custom-button-css>.p-button {
+.custom-button-css > .p-button {
     color: gray !important;
     background: none;
     border: none !important;
@@ -351,8 +352,7 @@ input[type="file"] {
     border-radius: 0 !important;
 }
 
-.custom-button-css>.p-button:hover {
-
+.custom-button-css > .p-button:hover {
     color: gray !important;
     background: none;
     border: none !important;
@@ -363,7 +363,7 @@ input[type="file"] {
     border-radius: 0 !important;
 }
 
-.custom-button-css>.p-splitbutton-defaultbutton {
+.custom-button-css > .p-splitbutton-defaultbutton {
     display: none !important;
 }
 
@@ -375,8 +375,8 @@ input[type="file"] {
     align-items: center;
 }
 
-.layout-topbar-header .p-splitbutton.p-button-text>.p-button:enabled:active,
-.p-splitbutton.p-button-text>.p-button:not(button):not(a):not(.p-disabled):active {
+.layout-topbar-header .p-splitbutton.p-button-text > .p-button:enabled:active,
+.p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
     background-color: transparent;
 }
 
@@ -393,7 +393,7 @@ input[type="file"] {
     width: auto;
 }
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
     .p-confirm-popup {
         position: absolute;
         top: 30%;

@@ -4,14 +4,14 @@ import * as Yup from "yup";
 import { Button } from "primereact/button";
 import "./Login.css";
 // import { resetChangeStatus, loginUser } from "../../redux/auth_slice/login_user_slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     let history = useHistory();
     //redux
     const { success, error, loading } = useSelector((state) => state.loginUser);
@@ -27,7 +27,7 @@ const Login = () => {
         return () => {
             // dispatch((resetChangeStatus))
         };
-    }, [success]);
+    }, [success, error]);
     //forms
     const validationSchema = Yup.object().shape({
         // password: Yup.string().required("Password is required.").min(8, 'Minimum length should be 8'),

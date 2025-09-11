@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 // import { forgetPassword, resetChangeStatus } from '../../redux/auth_slice/forgotuser_slice';
 const ForgotPass = () => {
     let history = useHistory();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     //redux
     const { success, error, loading } = useSelector((state) => state.forgetPassword);
     //forms
@@ -23,9 +23,9 @@ const ForgotPass = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async (data) => {
-            const body = {
-                user_email: data.user_email,
-            };
+            // const body = {
+            //     user_email: data.user_email,
+            // };
             // dispatch(forgetPassword(body));
         },
     });
@@ -44,7 +44,7 @@ const ForgotPass = () => {
         return () => {
             // dispatch(resetChangeStatus);
         };
-    }, [success]);
+    }, [success , error]);
 
     const isFormFieldValid = (name) => !!(formik.touched[name] && formik.errors[name]);
     const getFormErrorMessage = (name) => {
