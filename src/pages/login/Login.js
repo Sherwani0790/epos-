@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import { Button } from "primereact/button";
 import "./Login.css";
-import { resetChangeStatus, loginUser } from "../../redux/auth_slice/login_user_slice";
+// import { resetChangeStatus, loginUser } from "../../redux/auth_slice/login_user_slice";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from 'react-toastify';
-import { InputText } from 'primereact/inputtext';
+import { toast } from "react-toastify";
+import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { useHistory } from "react-router-dom";
 
@@ -19,16 +19,14 @@ const Login = () => {
     useEffect(() => {
         if (success !== undefined) {
             if (success === true) {
-                toast.success('successfully logged in');
+                toast.success("successfully logged in");
             } else {
-                toast.warn(error)
+                toast.warn(error);
             }
         }
         return () => {
-
-            dispatch((resetChangeStatus))
-        }
-
+            // dispatch((resetChangeStatus))
+        };
     }, [success]);
     //forms
     const validationSchema = Yup.object().shape({
@@ -45,7 +43,7 @@ const Login = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async (data) => {
-            dispatch(loginUser(data));
+            // dispatch(loginUser(data));
         },
     });
 
@@ -64,38 +62,32 @@ const Login = () => {
 
                         <div className="pt-3">
                             <form className="login_form" onSubmit={formik.handleSubmit}>
-                                <div className="p-mb-4">
-                                    {/* <h1 className="login_h1">Login</h1> */}
-                                </div>
+                                <div className="p-mb-4">{/* <h1 className="login_h1">Login</h1> */}</div>
                                 <div className="p-mt-4">
                                     <div className="user_Email-Name  mb-3">
-
                                         <div>
-                                            <label><b>Email</b></label>
+                                            <label>
+                                                <b>Email</b>
+                                            </label>
                                         </div>
 
                                         <div>
-                                            <InputText id='username' name='username' value={formik.values.username} onChange={formik.handleChange} autoFocus className="login_input" type="text" placeholder="Enter Email" />
-                                            {getFormErrorMessage('username')}
+                                            <InputText id="username" name="username" value={formik.values.username} onChange={formik.handleChange} autoFocus className="login_input" type="text" placeholder="Enter Email" />
+                                            {getFormErrorMessage("username")}
                                         </div>
                                     </div>
                                     <div className="user_Email-Name mb-3">
                                         <div>
-                                            <label><b>Password</b></label>
+                                            <label>
+                                                <b>Password</b>
+                                            </label>
                                         </div>
                                         <div>
-
-                                            <Password className="login_input input_pass"
-                                                value={formik.values.password} onChange={formik.handleChange}
-                                                name="password" id="password"
-                                                type="password"
-                                                placeholder="Enter Password"
-                                                toggleMask
-                                            />
+                                            <Password className="login_input input_pass" value={formik.values.password} onChange={formik.handleChange} name="password" id="password" type="password" placeholder="Enter Password" toggleMask />
                                             {getFormErrorMessage("password")}
                                         </div>
                                     </div>
-                                    <div className='flex justify-content-end'>
+                                    <div className="flex justify-content-end">
                                         <p
                                             className="forget_text"
                                             onClick={(e) => {
@@ -115,7 +107,6 @@ const Login = () => {
                 </div>
                 <div className="lg:col-4 md:col-4"></div>
             </div>
-
         </div>
     );
 };

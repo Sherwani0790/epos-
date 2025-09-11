@@ -1,48 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
-import { Route, useLocation, Switch } from "react-router-dom";
+import React,{ useEffect, useRef, useState } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
-import { AppTopbar } from "./AppTopbar";
+import { AppConfig } from "./AppConfig";
 import { AppFooter } from "./AppFooter";
 import { AppMenu } from "./AppMenu";
-import { AppConfig } from "./AppConfig";
-
+import { AppTopbar } from "./AppTopbar";
 
 import PrimeReact from "primereact/api";
 import { Tooltip } from "primereact/tooltip";
 
-import "primereact/resources/primereact.css";
-import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+import "primeicons/primeicons.css";
+import "primereact/resources/primereact.css";
 import "prismjs/themes/prism-coy.css";
-import "./assets/demo/flags/flags.css";
-import "./assets/demo/Demos.scss";
-import "./assets/layout/layout.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import "./assets/demo/Demos.scss";
+import "./assets/demo/flags/flags.css";
+import "./assets/layout/layout.scss";
 
 //coponent calling
-import Dashboard from "./components/Dashboard";
-import Login from "./pages/login/Login";
-import UserManagement from "./pages/usermanagement";
-import SupportView from "./pages/support";
-import InvoicesView from "./pages/transaction/invoices";
-import ScheduleOfAssignment from "./pages/transaction/scheduleofassignment";
-import ClientRequest from "./pages/creditrequest/clientrequest";
-import DebtorRequest from "./pages/creditrequest/debtorrequest";
 import { useSelector } from "react-redux";
-import ClientsScreen from "./pages/managment/clients";
-import DebtorScreen from "./pages/managment/debtor";
-import UserProfile from "./pages/userprofile";
-import ClientDetails from "./pages/managment/clients/clientdetails";
-import Reports from "./pages/reports";
-import ReportDetails from "./pages/reports/reportdetails";
-import Document from "./pages/document";
+import Dashboard from "./components/Dashboard";
 import ForgotPass from "./pages/login/forgotpass";
-// import ProfileClient from "./pages/managment/clients/clientdetails/component/profile";
+import Login from "./pages/login/Login";
+import SalesMain from "./pages/sales";
 
 const App = () => {
     const [layoutMode, setLayoutMode] = useState("static");
@@ -165,77 +150,12 @@ const App = () => {
         {
             items: [
                 {
-                    label: "Management",
-                    icon: "pi pi-fw pi-bookmark",
-                    items: [
-                        { label: "Clients", icon: "pi pi-fw pi-bookmark", to: "/api/clients" },
-                        { label: "Debtor", icon: "pi pi-fw pi-bookmark", to: "/api/debtor" },
-                    ],
-                },
-            ],
-        },
-        {
-            items: [
-                {
-                    label: "Transactions",
-                    icon: "pi pi-fw pi-bookmark",
-                    items: [
-                        { label: "Invoices", icon: "pi pi-fw pi-bookmark", to: "/api/invoices" },
-                        { label: "Schedule of Assignment", icon: "pi pi-fw pi-bookmark", to: "/api/scheduleofassignment" },
-                    ],
-                },
-            ],
-        },
-        {
-            items: [
-                {
-                    label: "Credit Request",
-                    icon: "pi pi-fw pi-bookmark",
-                    items: [
-                        { label: "Clients Request", icon: "pi pi-fw pi-bookmark", to: "/api/clientrequest" },
-                        { label: "Debtor Request", icon: "pi pi-fw pi-bookmark", to: "/api/debtorrequest" },
-                    ],
-                },
-            ],
-        },
-        {
-            items: [
-                {
-                    label: "Support",
+                    label: "Sales",
                     icon: "pi pi-fw pi-home",
-                    to: "/api/support",
+                    to: "/api/sales",
                 },
             ],
         },
-        {
-            items: [
-                {
-                    label: "User Management",
-                    icon: "pi pi-fw pi-home",
-                    to: "/api/usermanagement",
-                },
-            ],
-        },
-        {
-            items: [
-                {
-                    label: "Reports",
-                    icon: "pi pi-fw pi-home",
-                    to: "/api/reports",
-                },
-            ],
-        },
-        {
-            items: [
-                {
-                    label: "Document",
-                    icon: "pi pi-fw pi-home",
-                    to: "/api/document",
-                },
-            ],
-        },
-
-
     ];
 
     const addClass = (element, className) => {
@@ -262,64 +182,42 @@ const App = () => {
     const { user } = loginUser;
     return (
         <>
-            {
-                user !== undefined ?
-                    <>
-                        <ToastContainer />
-                        <Route path="/api/forgotpass" exact={true} component={ForgotPass} />
-                        <Route path="/" exact component={Login} />
-                        {/* <Route path='*' component={Login} /> */}
-                    </>
-                    : <div className={wrapperClass} onClick={onWrapperClick}>
-                        <ToastContainer />
-                        <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
+            {user !== undefined ? (
+                <>
+                    <ToastContainer />
+                    <Route path="/api/forgotpass" exact={true} component={ForgotPass} />
+                    <Route path="/" exact component={Login} />
+                    {/* <Route path='*' component={Login} /> */}
+                </>
+            ) : (
+                <div className={wrapperClass} onClick={onWrapperClick}>
+                    <ToastContainer />
+                    <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
 
-                        <AppTopbar onToggleMenuClick={onToggleMenuClick} layoutColorMode={layoutColorMode} mobileTopbarMenuActive={mobileTopbarMenuActive} onMobileTopbarMenuClick={onMobileTopbarMenuClick} onMobileSubTopbarMenuClick={onMobileSubTopbarMenuClick} />
-                        <div className="layout-sidebar" onClick={onSidebarClick}>
-                            <AppMenu model={menu} onMenuItemClick={onMenuItemClick} layoutColorMode={layoutColorMode} />
+                    <AppTopbar onToggleMenuClick={onToggleMenuClick} layoutColorMode={layoutColorMode} mobileTopbarMenuActive={mobileTopbarMenuActive} onMobileTopbarMenuClick={onMobileTopbarMenuClick} onMobileSubTopbarMenuClick={onMobileSubTopbarMenuClick} />
+                    <div className="layout-sidebar" onClick={onSidebarClick}>
+                        <AppMenu model={menu} onMenuItemClick={onMenuItemClick} layoutColorMode={layoutColorMode} />
+                    </div>
+                    <div className="layout-main-container">
+                        <div className="layout-main">
+                            <Switch>
+                                {/* //Dashboard */}
+                                <Route path="/" exact component={Dashboard} />
+                                {/* Management */}
+                                <Route path="/api/sales" exact component={SalesMain} />
+                            </Switch>
                         </div>
-                        <div className="layout-main-container">
-                            <div className="layout-main">
-                                <Switch>
-                                    {/* //Dashboard */}
-                                    <Route path="/" exact component={Dashboard} />
-                                    {/* Management */}
-                                    <Route path="/api/clients" exact component={ClientsScreen} />
-                                    <Route path="/api/clientdetails:id" exact component={ClientDetails} />
-                                    <Route path="/api/debtor" exact component={DebtorScreen} />
-                                    {/* Transactions */}
-                                    <Route path="/api/invoices" exact component={InvoicesView} />
-                                    <Route path="/api/scheduleofassignment" exact component={ScheduleOfAssignment} />
-                                    {/* Credit Request */}
-                                    <Route path="/api/clientrequest" exact component={ClientRequest} />
-                                    <Route path="/api/debtorrequest" exact component={DebtorRequest} />
+                        <AppFooter layoutColorMode={layoutColorMode} />
+                    </div>
 
-                                    {/* UserManagement */}
-                                    <Route path="/api/usermanagement" exact component={UserManagement} />
-                                    {/* Support */}
-                                    <Route path="/api/support" exact component={SupportView} />
-                                    {/* UserProfile */}
-                                    <Route path="/api/userprofile" exact component={UserProfile} />
-                                    {/* Reports*/}
-                                    <Route path="/api/reports" exact component={Reports} />
-                                    <Route path="/api/reports:reportId" exact component={ReportDetails} />
-                                    {/* document */}
-                                    <Route path="/api/document" exact component={Document} />
-                                </Switch>
-                            </div>
-                            <AppFooter layoutColorMode={layoutColorMode} />
-                        </div>
+                    <AppConfig rippleEffect={ripple} onRippleEffect={onRipple} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange} layoutMode={layoutMode} onLayoutModeChange={onLayoutModeChange} layoutColorMode={layoutColorMode} onColorModeChange={onColorModeChange} />
 
-                        <AppConfig rippleEffect={ripple} onRippleEffect={onRipple} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange} layoutMode={layoutMode} onLayoutModeChange={onLayoutModeChange} layoutColorMode={layoutColorMode} onColorModeChange={onColorModeChange} />
-
-                        <CSSTransition classNames="layout-mask" timeout={{ enter: 200, exit: 200 }} in={mobileMenuActive} unmountOnExit>
-                            <div className="layout-mask p-component-overlay"></div>
-                        </CSSTransition>
-                    </div >
-
-            }
+                    <CSSTransition classNames="layout-mask" timeout={{ enter: 200, exit: 200 }} in={mobileMenuActive} unmountOnExit>
+                        <div className="layout-mask p-component-overlay"></div>
+                    </CSSTransition>
+                </div>
+            )}
         </>
-
     );
 };
 
