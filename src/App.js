@@ -31,6 +31,10 @@ import POSMain from "./pages/posmain";
 import productMain from "./pages/product";
 import userMain from "./pages/users";
 import salesMain from "./pages/sales";
+import ConfigurationMain from "./pages/configuration";
+import ColorMain from "./pages/configuration/color";
+import GenderMain from "./pages/configuration/gender";
+import SizeMain from "./pages/configuration/size";
 
 const App = () => {
     const [layoutMode, setLayoutMode] = useState("static");
@@ -145,7 +149,7 @@ const App = () => {
             items: [
                 {
                     label: "Dashboard",
-                    icon: "pi pi-fw pi-home",
+                    icon: "pi pi-fw pi-th-large",
                     to: "/",
                 },
             ],
@@ -154,7 +158,7 @@ const App = () => {
             items: [
                 {
                     label: "POS",
-                    icon: "pi pi-fw pi-home",
+                    icon: "pi pi-fw pi-slack",
                     to: "/api/pos",
                 },
             ],
@@ -163,7 +167,7 @@ const App = () => {
             items: [
                 {
                     label: "Sales",
-                    icon: "pi pi-fw pi-home",
+                    icon: "pi pi-fw pi-shopping-bag",
                     to: "/api/sales",
                 },
             ],
@@ -172,7 +176,7 @@ const App = () => {
             items: [
                 {
                     label: "Stock Management",
-                    icon: "pi pi-fw pi-home",
+                    icon: "pi pi-fw pi-server",
                     to: "/api/stock",
                 },
             ],
@@ -180,8 +184,21 @@ const App = () => {
         {
             items: [
                 {
+                    label: "Configuration",
+                    icon: "pi pi-fw pi-sliders-h",
+                    items: [
+                        { label: "Color Management", icon: "pi pi-fw pi-palette", to: "/api/color" },
+                        { label: "Size Management", icon: "pi pi-fw pi-stop-circle", to: "/api/size" },
+                        { label: "Gender Management", icon: "pi pi-fw pi-bookmark", to: "/api/gender" },
+                    ],
+                },
+            ],
+        },
+        {
+            items: [
+                {
                     label: "User Management",
-                    icon: "pi pi-fw pi-home",
+                    icon: "pi pi-fw pi-users",
                     to: "/api/user",
                 },
             ],
@@ -237,6 +254,9 @@ const App = () => {
                                 <Route path="/api/pos" exact component={POSMain} />
                                 <Route path="/api/sales" exact component={salesMain} />
                                 <Route path="/api/stock" exact component={productMain} />
+                                <Route path="/api/color" exact component={ColorMain} />
+                                <Route path="/api/gender" exact component={GenderMain} />
+                                <Route path="/api/size" exact component={SizeMain} />
                                 <Route path="/api/user" exact component={userMain} />
                             </Switch>
                         </div>
