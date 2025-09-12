@@ -13,32 +13,6 @@ import AddEditProduct from "./component";
 import AddEditCategory from "./component/addCategory";
 import { apiEPOS } from "../../constants/global";
 
-// const data = [
-//     {
-//         productId: 1,
-//         categoryId: 1,
-//         genderId: 1,
-//         productName: "Classic T-Shirt",
-//         gender: "Male",
-//         category: "Clothes",
-//         variations: [
-//             { productstockId: 1, colorId: 1, sizeId: 1, color: "Black", size: "S", quantity: 15, price: 100.0 },
-//             { productstockId: 1, colorId: 1, sizeId: 1, color: "Black", size: "S", quantity: 15, price: 100.0 },
-//         ],
-//     },
-//     {
-//         productId: 2,
-//         categoryId: 2,
-//         genderId: 2,
-//         productName: "Classic T-Shirt",
-//         gender: "Male",
-//         category: "Clothes",
-//         variations: [
-//             { productstockId: 2, colorId: 2, sizeId: 2, color: "Black", size: "S", quantity: 15, price: 100.0 },
-//             { productstockId: 2, colorId: 2, sizeId: 2, color: "Black", size: "S", quantity: 15, price: 100.0 },
-//         ],
-//     },
-// ];
 
 const ProductMain = () => {
     // Filter Global
@@ -125,7 +99,6 @@ const ProductMain = () => {
         setLoading(true);
         try {
             const response = await apiEPOS.get("ProductStock/Retrive");
-            console.log(response.data);
             setData(response.data);
         } catch (error) {
             console.error("Error fetching products:", error);
