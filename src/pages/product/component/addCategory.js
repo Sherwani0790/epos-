@@ -9,23 +9,19 @@ const AddEditCategory = (props) => {
     const { onHide, editDataCategory } = props;
     //Formik Vaidations
     const validationSchema = Yup.object().shape({
-        productName: Yup.mixed().required("Product Name is required"),
         size: Yup.mixed().required("Size is required"),
         color: Yup.mixed().required("Color is required"),
         qunatity: Yup.mixed().required("Qunatity is required"),
         price: Yup.mixed().required("Price is required"),
-        barCode: Yup.mixed().required("Barcode is required"),
     });
 
     const formik = useFormik({
         validationSchema: validationSchema,
         initialValues: {
-            productName: "",
             size: "",
             color: "",
             qunatity: "",
             price: "",
-            barCode: "",
         },
         onSubmit: async (values) => {
             if (editDataCategory === null) {
@@ -47,11 +43,7 @@ const AddEditCategory = (props) => {
         { name: "L", code: "US" },
         { name: "XL", code: "US" },
     ];
-    const productName = [
-        { name: "ABC", code: "ML" },
-        { name: "XYZ", code: "FM" },
-        { name: "General", code: "OT" },
-    ];
+
     const colorName = [
         { name: "ABC", code: "ML" },
         { name: "XYZ", code: "FM" },
@@ -62,11 +54,6 @@ const AddEditCategory = (props) => {
             <div className="container-fluid">
                 <form onSubmit={formik.handleSubmit}>
                     <div className="grid">
-                        <div className="col-12 md:col-6 pb-3">
-                            <GlobalDropdown label="Product Name" name="productName" id="productName" options={productName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.productName} onChange={formik.handleChange} />
-                            {getFormErrorMessage("productName")}
-                        </div>
-
                         <div className="col-12 md:col-6 pb-3">
                             <GlobalDropdown label="Size" id="size" name="size" options={sizeName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.size} onChange={formik.handleChange} />
                             {getFormErrorMessage("size")}
@@ -81,15 +68,9 @@ const AddEditCategory = (props) => {
                             <GlobalInputField label="Quantity (Stock)" name="qunatity" id="qunatity" placeholder="Enter Quantity (Stock)" isRequired value={formik.values.qunatity} onChange={formik.handleChange} />
                             {getFormErrorMessage("qunatity")}
                         </div>
-
                         <div className="col-12 md:col-6 pb-3">
                             <GlobalInputField label="Price" name="price" id="price" placeholder="Enter Price" isRequired value={formik.values.price} onChange={formik.handleChange} />
                             {getFormErrorMessage("price")}
-                        </div>
-
-                        <div className="col-12 md:col-6 pb-3">
-                            <GlobalInputField label="BarCode" name="barCode" id="barCode" placeholder="Enter BarCode" isRequired value={formik.values.barCode} onChange={formik.handleChange} />
-                            {getFormErrorMessage("barCode")}
                         </div>
 
                         <div className="col-12 mb-3">

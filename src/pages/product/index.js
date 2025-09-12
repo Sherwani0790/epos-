@@ -11,108 +11,39 @@ import { FilterMatchMode } from "primereact/api";
 import GlobalDialogIndex from "../../ui-components/globaldialoge";
 import AddEditProduct from "./component";
 import AddEditCategory from "./component/addCategory";
+import { apiEPOS } from "../../constants/global";
 
-const data = [
-    {
-        productId: 1,
-        productName: "Classic T-Shirt",
-        price: 1200,
-        gender: "Male",
-        category: "Clothes",
-        variations: [
-            {
-                color: "Black",
-                sizes: [
-                    { size: "S", quantity: 15 },
-                    { size: "M", quantity: 10 },
-                    { size: "L", quantity: 8 },
-                ],
-            },
-            {
-                color: "White",
-                sizes: [
-                    { size: "M", quantity: 12 },
-                    { size: "L", quantity: 9 },
-                ],
-            },
-        ],
-    },
-    {
-        productId: 2,
-        productName: "Summer Dress",
-        price: 2500,
-        gender: "Female",
-        category: "Clothes",
-        variations: [
-            {
-                color: "Red",
-                sizes: [
-                    { size: "S", quantity: 20 },
-                    { size: "M", quantity: 15 },
-                ],
-            },
-            {
-                color: "Blue",
-                sizes: [
-                    { size: "M", quantity: 14 },
-                    { size: "L", quantity: 11 },
-                ],
-            },
-        ],
-    },
-    {
-        productId: 3,
-        productName: "Kids Hoodie",
-        price: 1800,
-        gender: "Kid",
-        category: "Clothes",
-        variations: [
-            {
-                color: "Yellow",
-                sizes: [
-                    { size: "XS", quantity: 25 },
-                    { size: "S", quantity: 18 },
-                ],
-            },
-        ],
-    },
-    {
-        productId: 4,
-        productName: "Luxury Perfume",
-        price: 5500,
-        gender: "Female",
-        category: "Perfume",
-        variations: [
-            {
-                color: "N/A",
-                sizes: [
-                    { size: "100ml", quantity: 30 },
-                    { size: "50ml", quantity: 20 },
-                ],
-            },
-        ],
-    },
-    {
-        productId: 5,
-        productName: "Denim Pants",
-        price: 3000,
-        gender: "Male",
-        category: "Pant-Shirt",
-        variations: [
-            {
-                color: "Blue",
-                sizes: [
-                    { size: "30", quantity: 10 },
-                    { size: "32", quantity: 8 },
-                    { size: "34", quantity: 6 },
-                ],
-            },
-        ],
-    },
-];
+// const data = [
+//     {
+//         productId: 1,
+//         categoryId: 1,
+//         genderId: 1,
+//         productName: "Classic T-Shirt",
+//         gender: "Male",
+//         category: "Clothes",
+//         variations: [
+//             { productstockId: 1, colorId: 1, sizeId: 1, color: "Black", size: "S", quantity: 15, price: 100.0 },
+//             { productstockId: 1, colorId: 1, sizeId: 1, color: "Black", size: "S", quantity: 15, price: 100.0 },
+//         ],
+//     },
+//     {
+//         productId: 2,
+//         categoryId: 2,
+//         genderId: 2,
+//         productName: "Classic T-Shirt",
+//         gender: "Male",
+//         category: "Clothes",
+//         variations: [
+//             { productstockId: 2, colorId: 2, sizeId: 2, color: "Black", size: "S", quantity: 15, price: 100.0 },
+//             { productstockId: 2, colorId: 2, sizeId: 2, color: "Black", size: "S", quantity: 15, price: 100.0 },
+//         ],
+//     },
+// ];
 
 const ProductMain = () => {
     // Filter Global
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [isAddDialog, setIsAddDialog] = useState(false);
     const [isAddEditCategoryDialog, setIsAddEditCategoryDialog] = useState(false);
     const [editData, setEditData] = useState(null);
@@ -133,33 +64,37 @@ const ProductMain = () => {
 
     // Templates
     const actionTemplate = (rowData) => (
-        <Button
-            tooltip="Add New Category"
-            icon="pi pi-plus"
-            tooltipOptions={{ position: "top" }}
-            className="eye-icon-btn"
-            onClick={() => {
-                setIsAddEditCategoryDialog(true);
-                setEditDataCategory(rowData);
-            }}
-        />
+        <>
+            <Button
+                tooltip="Add New Category"
+                icon="pi pi-plus"
+                tooltipOptions={{ position: "top" }}
+                className="eye-icon-btn"
+                onClick={() => {
+                    setIsAddEditCategoryDialog(true);
+                    setEditDataCategory(rowData);
+                }}
+            />
+            <Button
+                tooltip="Edit Product"
+                icon="pi pi-pencil"
+                tooltipOptions={{ position: "top" }}
+                className="eye-icon-btn"
+                onClick={() => {
+                    setIsAddDialog(true);
+                    setEditData(rowData);
+                }}
+            />
+        </>
     );
 
     const rowExpansionTemplate = (rowData) => {
-        // Flatten sizes for each color so we can show size + quantity properly
-        const flattenedData = rowData.variations.flatMap((variation) =>
-            variation.sizes.map((s) => ({
-                color: variation.color,
-                size: s.size,
-                quantity: s.quantity,
-            }))
-        );
-
         return (
-            <DataTable showGridlines={true} value={flattenedData}>
+            <DataTable showGridlines={true} value={rowData.productStocks} responsiveLayout="scroll">
                 <Column field="color" header="Color" />
                 <Column field="size" header="Size" />
                 <Column field="quantity" header="Quantity" />
+                <Column field="price" header="Price" />
                 <Column
                     body={(rowData) => (
                         <Button
@@ -182,13 +117,27 @@ const ProductMain = () => {
     const allowExpansion = (rowData) => {
         return rowData.variations && rowData.variations.length > 0;
     };
-    const priceTemplate = (rowData) => {
-        return (
-            <>
-                <span className="text-green-500">{` ${rowData.price.toFixed(2)} PKR`}</span>
-            </>
-        );
+
+    // Fetch Products
+
+    const fetchProducts = async () => {
+        //fetch products from api
+        setLoading(true);
+        try {
+            const response = await apiEPOS.get("ProductStock/Retrive");
+            console.log(response.data);
+            setData(response.data);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        } finally {
+            setLoading(false);
+        }
     };
+
+    React.useEffect(() => {
+        fetchProducts();
+    }, []);
+
     return (
         <>
             <div className="grid">
@@ -234,7 +183,7 @@ const ProductMain = () => {
                         >
                             <Column expander={allowExpansion} style={{ width: "3em" }} />
                             <Column field="productName" header="Product Name" />
-                            <Column body={priceTemplate} header="Price" />
+                            {/* <Column body={priceTemplate} header="Price" /> */}
                             <Column field="gender" header="Gender" />
                             <Column field="category" header="Category" />
                             <Column body={actionTemplate} header="Action" />
@@ -275,13 +224,13 @@ const ProductMain = () => {
                         setIsAddEditCategoryDialog(false);
                         setEditDataCategory(null);
                     }}
-                    header={editData == null ? "Add New Category" : "Edit Category"}
+                    header={editDataCategory == null ? "Add New Category" : "Edit Category"}
                     draggable={false}
                     breakpoints={{ "960px": "80vw", "640px": "90vw" }}
                     style={{ width: "40vw" }}
                     component={
                         <AddEditCategory
-                            editData={editData}
+                            editData={editDataCategory}
                             onHide={() => {
                                 setIsAddEditCategoryDialog(false);
                                 setEditDataCategory(null);

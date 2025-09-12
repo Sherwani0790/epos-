@@ -10,10 +10,8 @@ const AddEditProduct = (props) => {
     //Formik Vaidations
     const validationSchema = Yup.object().shape({
         productName: Yup.mixed().required("Product Name is required"),
-        size: Yup.mixed().required("Size is required"),
-        color: Yup.mixed().required("Color is required"),
-        qunatity: Yup.mixed().required("Qunatity is required"),
-        price: Yup.mixed().required("Price is required"),
+        gender: Yup.mixed().required("Gender is required"),
+        category: Yup.mixed().required("Category is required"),
         barCode: Yup.mixed().required("Barcode is required"),
     });
 
@@ -21,10 +19,9 @@ const AddEditProduct = (props) => {
         validationSchema: validationSchema,
         initialValues: {
             productName: "",
-            size: "",
-            color: "",
-            qunatity: "",
-            price: "",
+            gender: "",
+            category: "",
+
             barCode: "",
         },
         onSubmit: async (values) => {
@@ -41,18 +38,13 @@ const AddEditProduct = (props) => {
         return isFormFieldValid(name) && <small className="p-error">{formik.errors[name]}</small>;
     };
     //Drpdown List
-    const sizeName = [
+    const genderName = [
         { name: "S", code: "AD" },
         { name: "M", code: "US" },
         { name: "L", code: "US" },
         { name: "XL", code: "US" },
     ];
-    const productName = [
-        { name: "ABC", code: "ML" },
-        { name: "XYZ", code: "FM" },
-        { name: "General", code: "OT" },
-    ];
-    const colorName = [
+    const categoryName = [
         { name: "ABC", code: "ML" },
         { name: "XYZ", code: "FM" },
         { name: "General", code: "OT" },
@@ -62,29 +54,23 @@ const AddEditProduct = (props) => {
             <div className="container-fluid">
                 <form onSubmit={formik.handleSubmit}>
                     <div className="grid">
-                        <div className="col-12 md:col-6 pb-3">
+                        {/* <div className="col-12 md:col-6 pb-3">
                             <GlobalDropdown label="Product Name" name="productName" id="productName" options={productName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.productName} onChange={formik.handleChange} />
+                            {getFormErrorMessage("productName")}
+                        </div> */}
+                        <div className="col-12 md:col-6 pb-3">
+                            <GlobalInputField label="Product Name" name="productName" id="productName" placeholder="Enter Product Name" isRequired value={formik.values.productName} onChange={formik.handleChange} />
                             {getFormErrorMessage("productName")}
                         </div>
 
                         <div className="col-12 md:col-6 pb-3">
-                            <GlobalDropdown label="Size" id="size" name="size" options={sizeName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.size} onChange={formik.handleChange} />
-                            {getFormErrorMessage("size")}
+                            <GlobalDropdown label="Gender" id="gender" name="gender" options={genderName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.gender} onChange={formik.handleChange} />
+                            {getFormErrorMessage("gender")}
                         </div>
 
                         <div className="col-12 md:col-6 pb-3">
-                            <GlobalDropdown label="Color" id="color" name="color" options={colorName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.color} onChange={formik.handleChange} />
-                            {getFormErrorMessage("color")}
-                        </div>
-
-                        <div className="col-12 md:col-6 pb-3">
-                            <GlobalInputField label="Quantity (Stock)" name="qunatity" id="qunatity" placeholder="Enter Quantity (Stock)" isRequired value={formik.values.qunatity} onChange={formik.handleChange} />
-                            {getFormErrorMessage("qunatity")}
-                        </div>
-
-                        <div className="col-12 md:col-6 pb-3">
-                            <GlobalInputField label="Price" name="price" id="price" placeholder="Enter Price" isRequired value={formik.values.price} onChange={formik.handleChange} />
-                            {getFormErrorMessage("price")}
+                            <GlobalDropdown label="Category" id="category" name="category" options={categoryName} optionLabel="name" optionValue="name" placeholder="Select" isRequired value={formik.values.category} onChange={formik.handleChange} />
+                            {getFormErrorMessage("category")}
                         </div>
 
                         <div className="col-12 md:col-6 pb-3">
